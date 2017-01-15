@@ -1,4 +1,11 @@
 defmodule Cards do
+  @moduledoc"""
+  methode pour creer un jeu de carte.
+  """
+  @doc """
+  retourner une liste de cartes
+  """
+
 
 	def create_deck do
 	  values=["Ace", "Jack", "Quenn", "King", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"]
@@ -14,7 +21,10 @@ for suit<-suits, value <- values do
   end
   def contains?(deck, card) do
   	Enum.member?(deck, card)
-  end
+  end	
+  	 @doc """
+  	divise un jeu de carte en main la 'main' indique combien de cartes jouer
+  	"""
   def deal(deck, hand_size) do
   	Enum.split(deck, hand_size)
   	end
