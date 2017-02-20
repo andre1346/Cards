@@ -11,10 +11,9 @@ retourner une liste de cartes
 		values=["Ace", "Jack", "Quenn", "King", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"]
 		suits=["Spades", "Clubs", "Hearts", "Diamond"]
 
-		for suit<-suits, value <- values do
+		for suit <-suits, value <- values do
 		"#{value} of #{suit}"
-    	
-    end
+    	end
 		
 	end
 
@@ -48,8 +47,15 @@ retourner une liste de cartes
 	end
 
 
+
+	def players(x) do
+     List.duplicate("players", x)
+     |> Enum.with_index(1)
+	end	
+
+
 	def save(deck, filename) do
-		binary=:erlang.term_to_binary(deck)
+		binary = :erlang.term_to_binary(deck)
 		File.write(filename, binary)
 	end
 
@@ -66,6 +72,30 @@ retourner une liste de cartes
 		|>Cards.shuffle
 		|>Cards.deal(hand_size)	
 	end	
+
+
+	def give_cards(qte,players) do
+		deck = Cards.create_deck
+ 		newDeck = Cards.shuffle(deck)
+		List.duplicate(qte,players)
+		 |> Enum.with_index(1)
+           
+	end
+
+	def create_multiplayer_game(player_amount, hand_size) do 
+		Cards.create_deck
+			|> Cards.shuffle
+			|> Cards.deal_multiplayer_hand(hand_size, player_amount)
+
+		#players = Cards.players(player_amount)
+		
+
+	end
+
+
+	def deal_multiplayer_hand(deck, hand_size, player_amount) do 
+		Cards.deal(deck, hand_size)
+	end
   
 
  end
