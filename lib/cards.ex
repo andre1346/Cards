@@ -95,7 +95,13 @@ retourner une liste de cartes
 
 	def deal_multiplayer_hand(deck, hand_size, player_amount) do 
 		Cards.deal(deck, hand_size)
+		|>Cards.shuffle
 	end
-  
-
+  FACON DE FAIRE POUR LES NONOS
+  je te donne un jeu de 52 cartes
+  brasse les cartes
+  donne un nombre specifier ( a venir) de cartes 
+  a chaque joueur (nombres a venir)
+  a la fin garde le paquet en mains
+  assure toi que chaque joueurs a le bon nombre de cartes.
  end
